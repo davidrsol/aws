@@ -1,0 +1,24 @@
+// configuración de una instancia básica en aws-linux que incluya php7 y mysql
+
+// actualizar y configurar servicios apache, php y mysql
+
+sudo yum update -y
+sudo yum install -y httpd24 php70 mysql56-server php70-mysqlnd
+
+// levantar servicio apache
+
+sudo service httpd start
+
+// verificar que servicio apache esta arriba
+
+sudo chkconfig httpd on
+chkconfig --list httpd
+
+// levantar servicio mysql
+
+sudo service mysqld start
+
+// levantar servicio seguro
+
+sudo yum install -y mod24_ssl
+sudo service httpd restart
